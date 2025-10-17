@@ -1,0 +1,23 @@
+{
+  "name": "playwright-automation-framework",
+  "version": "1.0.0",
+  "description": "udemy course",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lasgill3/playwright-automation-framework.git"
+  },
+  "author": "lasgill",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lasgill3/playwright-automation-framework/issues"
+  },
+  "homepage": "https://github.com/lasgill3/playwright-automation-framework#readme",
+  "devDependencies": {
+    "@cucumber/cucumber": "^12.2.0",
+    "@playwright/test": "^1.56.0",
+    "@types/node": "^24.7.2",
+    "ts-node": "^10.9.2"
+  }
+}
