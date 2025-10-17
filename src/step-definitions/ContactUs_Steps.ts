@@ -1,18 +1,19 @@
-import { defineStep as And, Given, When, Then } from '@cucumber/cucumber';
-import { Browser, chromium } from "playwright";
-import { Page } from "playwright";
+import { defineStep as And, Given, When, Then, Before, After } from '@cucumber/cucumber';
+import { pageFixure } from './hooks/browserContextFixture';
+import { Browser, chromium, Page } from "playwright";
 
-let browser: Browser; //represents the browser instance e.g. Chrome, Firefox, etc. open by Playwright
-let context: any; //represents a browser context (a separate browsing session);  Each contxt has its own cookies, cache, storage, etc.
 let page: Page; 
 
 
 And('I type a first name', async () => {
+    // const firstNameInput = await page.locator('input[name="first_name"]');  
+    // await firstNameInput.fill('John');
+    await pageFixure.page.locator("input[name='first_name']").fill('Latunji'); 
    
 });
 
 And('I type a last name', async () => {
-   
+   await page.locator("input[name='last_name']").fill('Latunji'); 
 });
 
 And('I enter an email address', async () => {
@@ -26,8 +27,7 @@ And('I type a comment', async () => {
 
 And('I click on the submit button', async () => {
 
-});1
-
+});
 
 Then('I should be presented with a successful contact us submission message', async () => {
 
