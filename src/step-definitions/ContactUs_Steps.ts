@@ -27,6 +27,6 @@ And('I click on the submit button', async () => {
 });
 
 Then('I should be presented with a successful contact us submission message', async () => {
-    const successMessage = await pageFixture.page.locator("#contact_reply h1");
-    await expect(successMessage).toHaveText("Thank You for your Message!");
+    const successMessage = await pageFixture.page.innerText("#contact_reply h1");
+    expect(successMessage).toEqual("Thank You for your Message!");
 });
