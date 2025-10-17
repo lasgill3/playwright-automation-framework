@@ -4,7 +4,7 @@
   "description": "udemy course",
   "main": "index.js",
   "scripts": {
-    "cucumberTest": "npx cucumber-js src/features/*.feature --require-module ts-node/register --require src/step-definitions/**/**/*.ts"
+    "cucumberTest": "npx cucumber-js src/features/*.feature --require-module ts-node/register --require src/step-definitions/**/**/*.ts --require src/utils/cucumber-timeout.ts"
   },
   "repository": {
     "type": "git",
