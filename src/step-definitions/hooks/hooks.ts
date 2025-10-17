@@ -1,6 +1,6 @@
 import { After, AfterAll, Before, BeforeAll } from "@cucumber/cucumber";
-import { Browser, chromium, Page } from "@playwright/test";
-import { pageFixure } from "./browserContextFixture"; 
+import { Browser, chromium } from "@playwright/test";
+import { pageFixture } from "./browserContextFixture"; 
 
 let browser: Browser; //represents the browser instance e.g. Chrome, Firefox, etc. open by Playwright
 
@@ -18,13 +18,13 @@ AfterAll(async function () {
 Before(async function () {
   //setup browser instance:
   browser = await chromium.launch({ headless: false });
-  pageFixure.context = await browser.newContext({viewport: { width: 1920, height: 1080 }}); 
-  pageFixure.page = await pageFixure.context.newPage();
+  pageFixture.context = await browser.newContext({viewport: { width: 1920, height: 1080 }}); 
+  pageFixture.page = await pageFixture.context.newPage();
 });
 
 //After hook to run after each scenario
 After(async function () {
-  await pageFixure.page.close();
+  await pageFixture.page.close();
   await browser.close();
 });
 

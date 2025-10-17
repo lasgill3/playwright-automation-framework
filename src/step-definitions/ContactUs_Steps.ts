@@ -1,15 +1,15 @@
 import { defineStep as And, Given, When, Then, Before, After } from '@cucumber/cucumber';
-import { pageFixure } from './hooks/browserContextFixture';
+import { pageFixture } from './hooks/browserContextFixture';
 
 And('I type a first name', async () => {
     // const firstNameInput = await page.locator('input[name="first_name"]');  
     // await firstNameInput.fill('John');
-    await pageFixure.page.locator("input[name='first_name']").fill('Latunji'); 
+    await pageFixture.page.locator("input[name='first_name']").fill('Latunji'); 
    
 });
 
 And('I type a last name', async () => {
-   await pageFixure.page.locator("input[name='last_name']").fill('Latunji'); 
+   await pageFixture.page.locator("input[name='last_name']").fill('Latunji'); 
 });
 
 And('I enter an email address', async () => {
