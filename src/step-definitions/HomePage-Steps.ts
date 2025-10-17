@@ -24,3 +24,10 @@ When('I click on the contact us button', async () => {
     const contactUs_Button = await page.locator("#contact-us");
     await contactUs_Button.click();
 });
+
+
+When('I switch to the new browser tab', async () => {
+    page = await context.waitForEvent('page'); //reinitialize page to the new tab
+    await page.bringToFront(); //bring the new tab to the front
+}); 
+
