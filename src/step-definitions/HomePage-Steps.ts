@@ -17,7 +17,10 @@ Given('I navigate to the webdriveruniversity homepage', async () => {
     await page.goto(url);  
 });
 
-When('I click on the contact us button', {timeout: 60 * 1000}, async () => {
+When('I click on the contact us button', async () => {
     // await page.pause(); // Pause for debugging
-    await page.click("#contact-us");
+    // await page.click("#contact-us");
+
+    const contactUs_Button = await page.locator("#contact-us");
+    await contactUs_Button.click();
 });
