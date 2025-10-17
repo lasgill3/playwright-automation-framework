@@ -1,4 +1,4 @@
-import { defineStep as And, Given, When, Then, Before, After } from '@cucumber/cucumber';
+import { defineStep as And, Given, When, Then } from '@cucumber/cucumber';
 import { pageFixture } from './hooks/browserContextFixture';
 import { expect } from '@playwright/test';
 
@@ -6,7 +6,7 @@ And('I type a first name', async () => {
     // const firstNameInput = await page.locator('input[name="first_name"]');  
     // await firstNameInput.fill('John');
     await pageFixture.page.locator("input[name='first_name']").fill('Latunji'); 
-   
+    // await pageFixture.page.getByPlaceholder('First Name').fill("Joe");
 });
 
 And('I type a last name', async () => {
@@ -29,4 +29,13 @@ And('I click on the submit button', async () => {
 Then('I should be presented with a successful contact us submission message', async () => {
     const successMessage = await pageFixture.page.innerText("#contact_reply h1");
     expect(successMessage).toEqual("Thank You for your Message!");
+});
+
+Then('I should be presented with a unsuccessful contact us submission message', async () => {
+    await pageFixture.page.waitForSelector("body");
+    const bodyElement = await pageFixture.page.locator("body");
+
+    const bodyText = await bodyElement.textContent();
+    // const errorMessage = await pageFixture.page.innerText("body");
+    await expect(bodyText).toMatch(/Error: (all fields are required|Invalid email address)/);   
 });
