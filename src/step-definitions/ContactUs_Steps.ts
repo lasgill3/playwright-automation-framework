@@ -36,6 +36,5 @@ Then('I should be presented with a unsuccessful contact us submission message', 
     const bodyElement = await pageFixture.page.locator("body");
 
     const bodyText = await bodyElement.textContent();
-    // const errorMessage = await pageFixture.page.innerText("body");
     await expect(bodyText).toMatch(/Error: (all fields are required|Invalid email address)/);   
 });
