@@ -38,3 +38,20 @@ Then('I should be presented with a unsuccessful contact us submission message', 
     const bodyText = await bodyElement.textContent();
     await expect(bodyText).toMatch(/Error: (all fields are required|Invalid email address)/);   
 });
+
+
+And('I type a specific first name {string}', async (fname: string) => {
+    await pageFixture.page.locator("input[name='first_name']").fill(fname);
+}); 
+
+And('I type a specific last name {string}', async (lname: string) => {
+    await pageFixture.page.locator("input[name='last_name']").fill(lname);
+}); 
+
+And('I enter a specific email address {string}', async (email: string) => {
+    await pageFixture.page.locator("input[name='email']").fill(email);  
+}); 
+
+And('I type a specific word {string} and number {int} within the comment input field', async (comment: string, randomNumber: number) => {
+    await pageFixture.page.locator("textarea[name='message']").fill(`${comment} ${randomNumber}`);  
+}); 
