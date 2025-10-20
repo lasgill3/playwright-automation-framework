@@ -4,7 +4,8 @@
   "description": "udemy course",
   "main": "index.js",
   "scripts": {
-    "cucumberTest": "cucumber-js src/features/*.feature --require-module ts-node/register --require src/step-definitions/**/**/*.ts --require src/utils/cucumber-timeout.ts"
+    "cucumberTest": "cucumber-js src/features/*.feature --require-module ts-node/register --require src/step-definitions/**/**/*.ts --require src/utils/cucumber-timeout.ts",
+    "loginTest": "cucumber-js src/features/*.feature --require-module ts-node/register --require src/step-definitions/**/**/*.ts --require src/utils/cucumber-timeout.ts --tags @login"
   },
   "repository": {
     "type": "git",
