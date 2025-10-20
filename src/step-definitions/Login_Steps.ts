@@ -6,7 +6,11 @@ Given('I navigate to the webdriveruniversity login page', async () => {
     await pageFixture.page.goto('https://www.webdriveruniversity.com/Login-Portal/index.html'); 
 });
 
+
 And('I type an username {string} and password {string}', async (username: string, pwd: string) => {
+    // await pageFixture.page.getByPlaceholder("Username").fill(username);
+    // await pageFixture.page.locator('input#text').fill(username);
+    // await pageFixture.page.locator('input#password').fill(pwd);1
     await pageFixture.page.fill('#text', username);
     await pageFixture.page.fill('#password', pwd);
 }); 

@@ -6,6 +6,8 @@ Feature: webdriveruniversity - Login Page validation
 
     Scenario Outline: Valid and Invalid Login Form Submission
         Given I navigate to the webdriveruniversity login page
+        # Given I navigate to the webdriveruniversity homepage
+        When I click on the login portal button
         And I type an username '<username>' and password '<password>'
         And I click on the login button
         Then I should be presented with an alert box which contains text '<expectedAlertMessage>'

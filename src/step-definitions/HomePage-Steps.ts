@@ -15,6 +15,14 @@ When('I click on the contact us button', async () => {
     await contactUs_Button.click();
 });
 
+When('I click on the login portal button', async () => {
+    // await page.pause(); // Pause for debugging
+    // await page.click("#contact-us");
+
+    const contactUs_Button = await pageFixture.page.locator("#login-portal");
+    await contactUs_Button.click();
+});
+
 
 When('I switch to the new browser tab', async () => {
     await pageFixture.context.waitForEvent('page'); //reinitialize page to the new tab
