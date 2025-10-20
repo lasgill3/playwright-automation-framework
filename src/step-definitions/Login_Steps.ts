@@ -12,7 +12,7 @@ And('I type an username {string} and password {string}', async (username: string
 }); 
 
 And('I click on the login button', async () => {
-    await pageFixture.page.click('#login-button');
+    await pageFixture.page.click('#login-button', {force: true });
 });
 
 Then('I should be presented with an alert box which contains text {string}', async (expectedAlertMessage: string) => {
