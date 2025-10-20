@@ -40,7 +40,7 @@ Feature: WebdriverUniversity - Contact Us Page
     #     And I click on the submit button
     #     Then I should be presented with a successful contact us submission message
 
-    # @smoke
+    @smoke
     Scenario Outline: Validate contact us Page
         And I type both first name '<firstName>' and a last name '<lastName>'
         And I type an email '<emailAddress>' and a comment '<comment>'
