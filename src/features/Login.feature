@@ -4,14 +4,14 @@ Feature: webdriveruniversity - Login Page validation
     # Background: Pre-Conditions
     #     When I wait for 0 seconds
 
-    Scenario Outline: Valid and Invalid Login Form Submission
-        Given I navigate to the webdriveruniversity login page
-        # Given I navigate to the webdriveruniversity homepage
+    SScenario Outline: Validate valid & invalid login
+        Given I navigate to the webdriveruniversity homepage
         When I click on the login portal button
-        And I type an username '<username>' and password '<password>'
+        And I switch to the new browser tab
+        And I type a username <username>
+        And I type a password <password>
         And I click on the login button
-        Then I should be presented with an alert box which contains text '<expectedAlertMessage>'
-        When I click on the alert ok button
+        Then I should be presented with an alert box which contains text '<expectedAlertText>'
 
         Examples:
             | username  | password     | expectedAlertMessage |
