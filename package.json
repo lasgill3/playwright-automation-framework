@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cucumberTest": "cucumber-js src/features/*.feature --require-module ts-node/register --require src/step-definitions/**/**/*.ts --require src/utils/cucumber-timeout.ts",
+    "smokeTest": "cucumber-js src/features/*.feature --require-module ts-node/register --require src/step-definitions/**/**/*.ts --require src/utils/cucumber-timeout.ts --tags @smoke",
     "loginTest": "cucumber-js src/features/*.feature --require-module ts-node/register --require src/step-definitions/**/**/*.ts --require src/utils/cucumber-timeout.ts --tags @login"
   },
   "repository": {
