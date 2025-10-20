@@ -91,4 +91,24 @@ And('I type an email {string} and a comment {string}', async (emailAdress: strin
 }); 
 
 And('I should be presented with header text {string}', async (successMessage: string) => {   
+    await pageFixture.page.waitForSelector("//h1 | //body", {state: 'visible'});
+
+    //get all elements
+    const elements = await pageFixture.page.locator("//h1 | //body").elementHandles();
+    
+    let foundElementText = '';
+
+    //loop through each of the elements
+    for(let element of elements) {
+        //get the inner text of the element
+        let text = await element.innerText();
+
+        //if statement to check whether text includes expected text
+        if(text.includes(successMessage)) {
+            foundElementText = text;
+            break;
+        }
+    }
+    //perform an assertion
+    expect(foundElementText).toContain(successMessage);
 }); 
