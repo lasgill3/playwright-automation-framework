@@ -8,12 +8,12 @@ const common = `src/features/*.feature \
 
 //Define an interface for the profiels objectgs
 //It defines an interface where wach key is a string and its value is also a string 
-interface ProfilesCommnands{
+interface ProfileCommnands{
     [key: string]: string;
 }   
 
 //Define a commnad strings for different test profiles
-const profiles: ProfilesCommnands = {
+const profiles: ProfileCommnands = {
     smoke: `${common} --tags "@smoke"`,
     regression: `${common} --tags "@regression"`,
     login: `${common} --tags "@login"`,
