@@ -26,7 +26,7 @@ const profile = process.argv[2];
 
 //Construct the command string based on the selected profile
 //commnad is the full command to run the tests for the selected profile
-let command = `npx cucumber-js ${profiles[profile as 'smoke' | 'regression' | 'login' | 'contactUs']}`;
+let command = `npx cucumber-js ${profiles[profile as 'smoke' | 'regression' | 'login' | 'contact-us']}`;
 
 //print the contructed command
 // console.log(`Running tests with command: ${command}`);
@@ -41,4 +41,4 @@ exec(command, { encoding: 'utf-8'}, (error: Error | null, stdout: string) => {
         //throw a new error with a simple message
         throw new Error(`Some automation test(s) have Fiale! - Please review: ${error.message}`);
     }
-})
+});
