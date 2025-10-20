@@ -1,6 +1,8 @@
 import { defineStep as And, Given, When, Then } from '@cucumber/cucumber';
 import { pageFixture } from './hooks/browserContextFixture';
 import { expect } from '@playwright/test';
+import { faker } from '@faker-js/faker';
+
 
 And('I type a first name', async () => {
     // const firstNameInput = await page.locator('input[name="first_name"]');  
@@ -55,3 +57,23 @@ And('I enter a specific email address {string}', async (email: string) => {
 And('I type a specific word {string} and number {int} within the comment input field', async (comment: string, randomNumber: number) => {
     await pageFixture.page.locator("textarea[name='message']").fill(`${comment} ${randomNumber}`);  
 }); 
+
+// And('I type a random first name {string}', async (fname: string) => {
+//     const randomFirstName = faker.person.firstName();
+//     await pageFixture.page.locator("input[name='first_name']").fill(randomFirstName);
+// }); 
+
+// And('I type a random last name {string}', async (lname: string) => {
+//     const randomLastName = faker.person.lastName();
+//     await pageFixture.page.locator("input[name='last_name']").fill(randomLastName);
+// });         
+
+// And('I enter a random email address {string}', async (email: string) => {
+//     const randomEmail = faker.internet.email();
+//     await pageFixture.page.locator("input[name='email']").fill(randomEmail);  
+//     await pageFixture.page.pause(); 
+// });
+
+// And('I type a random word {string} and number {int} within the comment input field', async (comment: string, randomNumber: number) => {
+//     await pageFixture.page.locator("textarea[name='message']").fill(`${comment} ${randomNumber}`);  
+// });
