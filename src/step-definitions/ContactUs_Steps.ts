@@ -84,10 +84,11 @@ And('I type both first name {string} and a last name {string}', async (firstName
     await pageFixture.page.locator("input[name='last_name']").fill(lastName);   
 });
 
-And('I type an {stirng} and a comment {string}', async (emailAdress: string, comment: string) => {   
+And('I type an email {string} and a comment {string}', async (emailAdress: string, comment: string) => {   
     await pageFixture.page.locator("input[name='email']").fill(emailAdress);  
     await pageFixture.page.locator("textarea[name='message']").fill(comment);
-});
+    // await pageFixture.page.pause();
+}); 
 
 And('I should be presented with header text {string}', async (successMessage: string) => {   
 }); 
