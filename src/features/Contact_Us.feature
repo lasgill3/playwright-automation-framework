@@ -6,7 +6,6 @@ Feature: WebdriverUniversity - Contact Us Page
         When I click on the contact us button
         And I switch to the new browser tab
 
-
     Scenario: Valid Contact Us Form Submission
         And I type a first name
         And I type a last name
