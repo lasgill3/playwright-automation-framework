@@ -5,6 +5,8 @@ Feature: webdriveruniversity - Login Page validation
     #     When I wait for 0 seconds
 
     Scenario Outline: Valid and Invalid Login Form Submission
+        # Given I navigate to the webdriveruniversity homepage
+        # When I click on the login portal link
         Given I navigate to the webdriveruniversity login page
         # Given I navigate to the webdriveruniversity homepage
         When I click on the login portal button
