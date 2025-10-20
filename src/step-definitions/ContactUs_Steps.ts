@@ -77,3 +77,17 @@ And('I type a specific word {string} and number {int} within the comment input f
 // And('I type a random word {string} and number {int} within the comment input field', async (comment: string, randomNumber: number) => {
 //     await pageFixture.page.locator("textarea[name='message']").fill(`${comment} ${randomNumber}`);  
 // });
+
+
+And('I type both first name {string} and a last name {string}', async (firstName: string, lastName: string) => {
+    await pageFixture.page.locator("input[name='first_name']").fill(firstName);
+    await pageFixture.page.locator("input[name='last_name']").fill(lastName);   
+});
+
+And('I type an {stirng} and a comment {string}', async (emailAdress: string, comment: string) => {   
+    await pageFixture.page.locator("input[name='email']").fill(emailAdress);  
+    await pageFixture.page.locator("textarea[name='message']").fill(comment);
+});
+
+And('I should be presented with header text {string}', async (successMessage: string) => {   
+}); 

@@ -39,16 +39,16 @@ Feature: WebdriverUniversity - Contact Us Page
     #     And I click on the submit button
     #     Then I should be presented with a successful contact us submission message
 
-# @smoke
-# Scenario Outline: Validate contact us Page
-#     And I type a first name '<firstName>' and a last name '<lastName>'
-#     And I type an '<emailAddress>' and a comment '<comment>'
-#     And I click on the submit button
-#     Then I should be presented with header text '<message>'
+@smoke
+Scenario Outline: Validate contact us Page
+    And I type both first name '<firstName>' and a last name '<lastName>'
+    And I type an '<emailAddress>' and a comment '<comment>'
+    And I click on the submit button
+    Then I should be presented with header text '<message>'
 
-#     Examples:
-#         | firstName | lastName | emailAddress         | comment                 | message                      |
-#         | John      | Jones    | john_jones@email.com | Hello how are you?      | Thank You for your Message!  |
-#         | Mia       | Carter   | Mia_carter@email.com | Test1223 Test123        | Thank You for your Message!  |
-#         | Grace     | Hudson   | Grace_Hudson         | Do you create websites? | Error: Invalid email address |
+    Examples:
+        | firstName | lastName | emailAddress         | comment                 | message                      |
+        | John      | Jones    | john_jones@email.com | Hello how are you?      | Thank You for your Message!  |
+        | Mia       | Carter   | Mia_carter@email.com | Test1223 Test123        | Thank You for your Message!  |
+        | Grace     | Hudson   | Grace_Hudson         | Do you create websites? | Error: Invalid email address |
 
