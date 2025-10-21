@@ -34,7 +34,7 @@ After(async function({pickle, result}) {
             });
             await this.attach(image, 'image/png');
         } else {
-            console.error("pageFIxture.page is undefined");
+            console.error("pageFixture.page is undefined");
         }
     }   
     await pageFixture.page.close();
