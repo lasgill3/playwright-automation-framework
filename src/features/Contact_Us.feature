@@ -49,7 +49,7 @@ Feature: WebdriverUniversity - Contact Us Page
 
         Examples:
             | firstName | lastName | emailAddress         | comment                 | message                      |
-            | John      | Jones    | john_jones@email.com | Hello how are you?      | Thank You for your Message5555!  |
+            | John      | Jones    | john_jones@email.com | Hello how are you?      | Thank You for your Message!  |
             | Mia       | Carter   | Mia_carter@email.com | Test1223 Test123        | Thank You for your Message!  |
             | Grace     | Hudson   | Grace_Hudson         | Do you create websites? | Error: Invalid email address |
 
