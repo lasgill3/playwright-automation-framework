@@ -1,5 +1,5 @@
 import { After, AfterAll, Before, BeforeAll, Status } from "@cucumber/cucumber";
-import {Browser, chromium} from "@playwright/test";
+import {Browser, chromium, BrowserType, firefox, webkit} from "@playwright/test";
 import { pageFixture } from "./browserContextFixture";
 
 //Load env variables from .env file
@@ -14,8 +14,23 @@ const config = {
     height: parseInt(env.parsed?.BROWSER_HEIGHT || '1080'), 
 }
 
+//Create dictionary mapping browser names to their launch functions
+const browsers: { [key: string]: BrowserType } = {
+    'chromium': chromium,
+    'firefox': firefox,
+    'webkit': webkit,
+};
 
-let browser: Browser;
+let browserInstance: Browser | null = null;
+
+async function initializeBrowserContext(selectedBrowser: string): Promise<Browser> {
+    const launchBrowser = browsers[selectedBrowser];
+    if (!launchBrowser) {
+        throw new Error(`Invalid browser selected: ${selectedBrowser}`);
+    } 
+
+    return await launchBrowser.launch({ headless: config.headless });
+}
 
 //BeforeAll hook: Runs once before all scenarios
 BeforeAll(async function(){
