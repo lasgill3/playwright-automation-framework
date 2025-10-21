@@ -79,6 +79,8 @@ After(async function({pickle, result}) {
             console.error("pageFixture.page is undefined");
         }
     }   
-    await pageFixture.page.close();
-    await browser.close();
+    if(browserInstance) {
+        await pageFixture.page?.close();
+        await browserInstance.close();
+    }
 });
