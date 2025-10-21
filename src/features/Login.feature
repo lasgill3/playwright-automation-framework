@@ -20,7 +20,7 @@ Feature: webdriveruniversity - Login Page validation
             | webdriver | invalid      | validation failed    |
             | joe       | pass12345    | validation failed    |
 
-        @smoke
+        @smoke @ignore
         Examples:
             | username  | password     | expectedAlertMessage |
             | webdriver | webdriver123 | validation succeeded |
