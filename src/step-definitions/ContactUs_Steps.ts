@@ -86,7 +86,7 @@ And('I enter a random email address', async function (this: CucumberWorld) {
 And('I type a random comment', async function (this: CucumberWorld) {
     await pageFixture.page.locator("textarea[name='message']").fill(`Please could you contact me? \n Thanks 
         ${this.getFirstName()} ${this.getLastName()} ${this.getEmailAddress()}`);  
-        await pageFixture.page.pause();
+        // await pageFixture.page.pause();
 });
 
 And('I type both first name {string} and a last name {string}', async (firstName: string, lastName: string) => {
@@ -97,7 +97,6 @@ And('I type both first name {string} and a last name {string}', async (firstName
 And('I type an email {string} and a comment {string}', async (emailAdress: string, comment: string) => {   
     await pageFixture.page.locator("input[name='email']").fill(emailAdress);  
     await pageFixture.page.locator("textarea[name='message']").fill(comment);
-    // await pageFixture.page.pause();
 }); 
 
 And('I should be presented with header text {string}', async (successMessage: string) => {   
