@@ -17,3 +17,17 @@ const myFormat = winston.format.printf(({ level, message, timestamp }) => {
     }
     return `${timestamp} [${level.toUpperCase()}]: ${colorizedMessage}`;
 });    
+
+//Create the logger instance
+const logger = winston.createLogger({
+    level: process.env.LOG_LEVEL || 'info',
+    format: winston.format.combine(
+        winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),
+        myFormat
+    ),
+    transports: [
+        new winston.transports.Console()
+    ]
+})
+
+export default logger;
