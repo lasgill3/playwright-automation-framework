@@ -34,10 +34,9 @@ Feature: WebdriverUniversity - Contact Us Page
 
     # @ignore
     Scenario: Valid Contact Us Form Submission - Using Random data
-        And I type a random first name "Sarah"
-        And I type a random last name "Woods"
-        And I enter a random email address "Sarah_woods101@mail.com"
-        And I type a random word "hello123" and number 699 within the comment input field
+        And I type a random first name 
+        And I type a random last name 
+        And I enter a random email address 
         And I type a comment
         And I click on the submit button
         Then I should be presented with a successful contact us submission message

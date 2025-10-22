@@ -63,25 +63,23 @@ And('I type a specific word {string} and number {int} within the comment input f
     await pageFixture.page.locator("textarea[name='message']").fill(`${comment} ${randomNumber}`);  
 }); 
 
-And('I type a random first name {string}', async (fname: string) => {
+
+//Random Data Faker Example 
+And('I type a random first name', async function (this: CucumberWorld) {
     const randomFirstName = faker.person.firstName();
     await pageFixture.page.locator("input[name='first_name']").fill(randomFirstName);
 }); 
 
-And('I type a random last name {string}', async (lname: string) => {
+And('I type a random last name', async function (this: CucumberWorld) {
     const randomLastName = faker.person.lastName();
     await pageFixture.page.locator("input[name='last_name']").fill(randomLastName);
 });         
 
-And('I enter a random email address {string}', async (email: string) => {
+And('I enter a random email address', async function (this: CucumberWorld) {
     const randomEmail = faker.internet.email();
     await pageFixture.page.locator("input[name='email']").fill(randomEmail);  
-    await pageFixture.page.pause(); 
 });
 
-And('I type a random word {string} and number {int} within the comment input field', async (comment: string, randomNumber: number) => {
-    await pageFixture.page.locator("textarea[name='message']").fill(`${comment} ${randomNumber}`);  
-});
 
 
 And('I type both first name {string} and a last name {string}', async (firstName: string, lastName: string) => {
