@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config({ path: './env/.env'});
 
 //Setting retry value from envionment variable or default to 0
-const retryValue = process.env.RETRY || '0';
+const retryValue = process.env.RETRY_ATTEMPTS || '0';
 
 //Define a common command string for running cucumber tests
 const common = `./src/features/*.feature \
