@@ -60,7 +60,7 @@ Before(async function() {
     try {
         browserInstance = await initializeBrowserContext(config.browser);
         console.log(`Browser context initialized for ${config.browser}`);
-        initializePage();
+        await initializePage();
     } catch (error) {
         console.error('Browser context initialization failed:', error);
     }
