@@ -23,6 +23,7 @@ const browsers: { [key: string]: BrowserType } = {
 
 let browserInstance: Browser | null = null;
 
+//Created a functional to initialize the browser context based on selected browser
 async function initializeBrowserContext(selectedBrowser: string): Promise<Browser> {
     const launchBrowser = browsers[selectedBrowser];
     if (!launchBrowser) {
@@ -32,6 +33,7 @@ async function initializeBrowserContext(selectedBrowser: string): Promise<Browse
     return await launchBrowser.launch({ headless: config.headless });
 }
 
+//Function to initialize page and context
 async function initializePage(): Promise<void> {
     if (!browserInstance) {
         throw new Error('Browser instance is null');
@@ -56,9 +58,9 @@ AfterAll(async function(){
 // Before hook: Runs before each scenario
 Before(async function() {
     try {
-    browserInstance = await initializeBrowserContext(config.browser);
-    console.log(`Browser context initialized for ${config.browser}`);
-    await initializePage();
+        browserInstance = await initializeBrowserContext(config.browser);
+        console.log(`Browser context initialized for ${config.browser}`);
+        initializePage();
     } catch (error) {
         console.error('Browser context initialization failed:', error);
     }
