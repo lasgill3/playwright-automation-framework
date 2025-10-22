@@ -1,4 +1,4 @@
-import { When } from '@cucumber/cucumber';
+import { When, Given } from '@cucumber/cucumber';
 import { pageFixture } from './hooks/browserContextFixture';
 
 //Load env variables from .env file
@@ -25,5 +25,9 @@ When('I switch to the new browser tab', async () => {
 
     //ensure the newly assigned tab is fully maximized
     await pageFixture.page.setViewportSize({ width: config.width, height: config.height});
+}); 
+
+Given('I pause playwright test for debugging', async () => {
+    await pageFixture.page.pause(); // Pause for debugging
 }); 
 
