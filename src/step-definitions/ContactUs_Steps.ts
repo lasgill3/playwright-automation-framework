@@ -2,17 +2,22 @@ import { defineStep as And, Given, When, Then } from '@cucumber/cucumber';
 import { pageFixture } from './hooks/browserContextFixture';
 import { expect } from '@playwright/test';
 import { faker } from '@faker-js/faker';
+import { CucumberWorld } from './world/CucumberWorld';
+import logger from '../looger/logger';
 
 
-And('I type a first name', async () => {
+And('I type a first name', async function (this: CucumberWorld) {
     // const firstNameInput = await page.locator('input[name="first_name"]');  
     // await firstNameInput.fill('John');
+
+    logger.info(`Base URL from World: ${this.getURL()}`);
     await pageFixture.page.locator("input[name='first_name']").fill('Latunji'); 
-    // await pageFixture.page.getByPlaceholder('First Name').fill("Joe");
+    
 });
 
 And('I type a last name', async () => {
    await pageFixture.page.locator("input[name='last_name']").fill('Asgill'); 
+   
 });
 
 And('I enter an email address', async () => {

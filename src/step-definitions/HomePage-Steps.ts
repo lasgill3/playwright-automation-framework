@@ -1,13 +1,15 @@
 import { Given, When, Then } from "@cucumber/cucumber";
 import { pageFixture } from "./hooks/browserContextFixture";
 import logger from "../looger/logger";
+import { CucumberWorld } from "./world/CucumberWorld";  
 
 const url = "https://www.webdriveruniversity.com";
 
-Given("I navigate to the webdriveruniversity homepage", async () => {
+Given("I navigate to the webdriveruniversity homepage", async function (this: CucumberWorld) {
   try {
     await pageFixture.page.goto(url);
     logger.info(`Accessing URL: ${url}`);
+    this.setURL(url);
     // throw new Error("Test error logging"); // Test error logging    
   } catch (error) {
     logger.error(`Error navigating to URL: ${url} - ${error}`);

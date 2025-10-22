@@ -10,7 +10,7 @@ export class CucumberWorld extends World {
   private emailAddress?: string;
 
   //Setter methods
-  setUrl(url: string) {
+  setURL(url: string) {
     this.url = url;
   }
 
@@ -27,7 +27,7 @@ export class CucumberWorld extends World {
   }
 
   //Getter methods
-  getUrl(): string | undefined {
+  getURL(): string | undefined {
     return this.url;
   }
 
