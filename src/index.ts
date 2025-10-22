@@ -39,9 +39,9 @@ exec(command, { encoding: 'utf-8'}, (error: Error | null, stdout: string) =>{
   //Log the output of the command
   console.log(stdout);
 
-  //check if there was an error during execution
-  if(error) {
-    //throw a new error with a simple message
-    throw new Error('⚠️ 💥 Some automation test(s) have failed! - Please review. ⚠️ 💥')
-  }
+//check if there was an error during execution
+if(error) {
+  //throw a new error with a simple message
+  throw new Error('⚠️ 💥 Some automation test(s) have failed! - Please review. ⚠️ 💥')
+}
 });
