@@ -4,7 +4,7 @@ import dotenv from "dotenv";
 dotenv.config({ path: './env/.env'});
 
 //Setting retry value from envionment variable or default to 0
-const parallelValue = process.env.PARALLEL_NUMBER || '0';
+const parallelValue = process.env.PARALLEL_NUMBER || '1';
 const retryValue = process.env.RETRY_ATTEMPTS || '0';
 
 //Define a common command string for running cucumber tests
