@@ -23,7 +23,6 @@ Feature: WebdriverUniversity - Contact Us Page
         And I click on the submit button
         Then I should be presented with a unsuccessful contact us submission message
 
-    @ignore
     Scenario: Valid Contact Us Form Submission - Using specific data
         And I type a specific first name "Sarah"
         And I type a specific last name "Woods"
