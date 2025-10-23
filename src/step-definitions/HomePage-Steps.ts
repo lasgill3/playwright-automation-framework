@@ -23,12 +23,16 @@ When("I click on the contact us button", async function (this: CucumberWorld) {
   // const contactUs_Button = await pageFixture.page.locator("#contact-us");
   // await contactUs_Button.click();
 
-  this.basePage.waitAndClickByLocator("#contact-us");
+  // this.basePage.waitAndClickByLocator("#contact-us");\
+
+  this.homePage.clickOnContactButton(); 
 });
 
 When("I click on the login portal button", async function (this: CucumberWorld) {
   // const contactUs_Button = await pageFixture.page.locator("#login-portal");
   // await contactUs_Button.click();
 
-  this.basePage.waitAndClickByLocator("#login-portal");
+  // this.basePage.waitAndClickByLocator("#login-portal");
+
+  this.homePage.clickOnLoginPortalButton(); 
 });
