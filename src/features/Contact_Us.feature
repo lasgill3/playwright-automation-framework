@@ -6,7 +6,7 @@ Feature: WebdriverUniversity - Contact Us Page
         When I click on the contact us button
         And I switch to the new browser tab
 
-    @ignore
+
     Scenario: Valid Contact Us Form Submission
         And I type a first name
         And I type a last name
@@ -15,7 +15,7 @@ Feature: WebdriverUniversity - Contact Us Page
         And I click on the submit button
         Then I should be presented with a successful contact us submission message
 
-    @smoke @ignore
+    @smoke
     Scenario: Invalid Contact Us Form Submission
         And I type a first name
         And I type a last name
@@ -34,14 +34,14 @@ Feature: WebdriverUniversity - Contact Us Page
 
     # @ignore
     Scenario: Valid Contact Us Form Submission - Using Random data
-        And I type a random first name 
-        And I type a random last name 
-        And I enter a random email address 
+        And I type a random first name
+        And I type a random last name
+        And I enter a random email address
         And I type a random comment
         And I click on the submit button
         Then I should be presented with a successful contact us submission message
 
-    @smoke @ignore
+    @smoke
     Scenario Outline: Validate contact us Page
         And I type both first name '<firstName>' and a last name '<lastName>'
         And I type an email '<emailAddress>' and a comment '<comment>'
