@@ -10,27 +10,31 @@ And('I type a first name', async function (this: CucumberWorld) {
     // const firstNameInput = await page.locator('input[name="first_name"]');  
     // await firstNameInput.fill('John');
 
-    logger.info(`Base URL from World: ${this.getURL()}`);
-    await pageFixture.page.locator("input[name='first_name']").fill('Latunji'); 
+    // logger.info(`Base URL from World: ${this.getURL()}`);
+    // await pageFixture.page.locator("input[name='first_name']").fill('Latunji'); 
     
+    await this.contactUsPage.typeFirstName("Latunji");
 });
 
-And('I type a last name', async () => {
-   await pageFixture.page.locator("input[name='last_name']").fill('Asgill'); 
-   
+And('I type a last name', async function (this: CucumberWorld) {
+//    await pageFixture.page.locator("input[name='last_name']").fill('Asgill'); 
+    await this.contactUsPage.typeLastName('Asgill');
 });
 
-And('I enter an email address', async () => {
-    await pageFixture.page.locator("input[name='email']").fill('lasgill@gmail.com');
+And('I enter an email address', async function (this: CucumberWorld) {
+    // await pageFixture.page.locator("input[name='email']").fill('fakeEmail@gmail.com');
+    await this.contactUsPage.typeEmailAddress('fakeEmail@gmail.com'); 
 });
 
-And('I type a comment', async () => {
-    await pageFixture.page.locator("textarea[name='message']").fill('This is a test comment for the contact us form.');
+And('I type a comment', async function (this: CucumberWorld) {
+    // await pageFixture.page.locator("textarea[name='message']").fill('This is a test comment for the contact us form.');
+    await this.contactUsPage.typeComment('This is a test comment for the contact us form.');
 
 });
 
-And('I click on the submit button', async () => {
-    await pageFixture.page.locator("input[type='submit']").click();
+And('I click on the submit button', async function (this: CucumberWorld) {
+    // await pageFixture.page.locator("input[type='submit']").click();
+    await this.contactUsPage.clickSubmitButton(); 
 });
 
 Then('I should be presented with a successful contact us submission message', async () => {

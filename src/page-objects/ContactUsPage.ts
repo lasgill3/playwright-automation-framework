@@ -2,6 +2,7 @@ import { BasePage } from "./base/BasePage";
 import { expect } from "@playwright/test";
 
 export class ContactUsPage extends BasePage {
+  
   public async typeFirstName(firstName: string): Promise<void> {
     await this.page.locator("input[name='first_name']").fill(firstName);
   }
