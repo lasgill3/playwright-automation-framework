@@ -74,7 +74,7 @@ And('I enter a specific email address {string}', async function (this: CucumberW
 
 And('I type a specific word {string} and number {int} within the comment input field', async function (this: CucumberWorld, comment: string, randomNumber: number) {
     // await pageFixture.page.locator("textarea[name='message']").fill(`${comment} ${randomNumber}`);  
-    await this.contactUsPage.typeComment(comment + randomNumber);
+    await this.contactUsPage.typeComment(comment + " " + randomNumber);
 }); 
 
 
