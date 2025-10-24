@@ -40,36 +40,41 @@ And('I click on the submit button', async function (this: CucumberWorld) {
 Then('I should be presented with a successful contact us submission message', async function(this: CucumberWorld) {
     // const successMessage = await pageFixture.page.innerText("#contact_reply h1");
     
-    
     // const succesMessage = await this.contactUsPage.getSuccessfulMessage(); 
     // await expect(successMessage).toEqual("Thank You for your Message!");
 
     await this.contactUsPage.verifySuccessfulMessage('hank You for your Message!'); 
 });
 
-Then('I should be presented with a unsuccessful contact us submission message', async () => {
-    await pageFixture.page.waitForSelector("body");
-    const bodyElement = await pageFixture.page.locator("body");
+Then('I should be presented with a unsuccessful contact us submission message', async function (this: CucumberWorld) {
+    // await pageFixture.page.waitForSelector("body");
+    // const bodyElement = await pageFixture.page.locator("body");
 
-    const bodyText = await bodyElement.textContent();
-    await expect(bodyText).toMatch(/Error: (all fields are required|Invalid email address)/);   
+    // const bodyText = await bodyElement.textContent();
+    // await expect(bodyText).toMatch(/Error: (all fields are required|Invalid email address)/);   
+
+    await this.contactUsPage.verifyErrorMessage('/Error: (all fields are required|Invalid email address)/');
 });
 
 
-And('I type a specific first name {string}', async (fname: string) => {
-    await pageFixture.page.locator("input[name='first_name']").fill(fname);
+And('I type a specific first name {string}', async function (this: CucumberWorld, fname: string ) {
+    // await pageFixture.page.locator("input[name='first_name']").fill(fname);
+    await this.contactUsPage.typeFirstName(fname); 
 }); 
 
-And('I type a specific last name {string}', async (lname: string) => {
-    await pageFixture.page.locator("input[name='last_name']").fill(lname);
+And('I type a specific last name {string}', async function (this: CucumberWorld, lname: string) {
+    // await pageFixture.page.locator("input[name='last_name']").fill(lname);
+    await this.contactUsPage.typeLastName(lname); 
 }); 
 
-And('I enter a specific email address {string}', async (email: string) => {
-    await pageFixture.page.locator("input[name='email']").fill(email);  
+And('I enter a specific email address {string}', async function (this: CucumberWorld, email: string) {
+    // await pageFixture.page.locator("input[name='email']").fill(email);  
+    await this.contactUsPage.typeEmailAddress(email); 
 }); 
 
-And('I type a specific word {string} and number {int} within the comment input field', async (comment: string, randomNumber: number) => {
-    await pageFixture.page.locator("textarea[name='message']").fill(`${comment} ${randomNumber}`);  
+And('I type a specific word {string} and number {int} within the comment input field', async function (this: CucumberWorld, comment: string, randomNumber: number) {
+    // await pageFixture.page.locator("textarea[name='message']").fill(`${comment} ${randomNumber}`);  
+    await this.contactUsPage.typeComment(comment + randomNumber);
 }); 
 
 

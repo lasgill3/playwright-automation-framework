@@ -25,14 +25,14 @@ export class ContactUsPage extends BasePage {
 
   //get success message
   public async verifySuccessfulMessage(successMessage: string): Promise<void> {
-    const acutalMessage = await this.page.innerText("#contact_reply h1");
-    await expect(acutalMessage).toEqual(successMessage);
+    const acutalSuccesssMessage = await this.page.innerText("#contact_reply h1");
+    await expect(acutalSuccesssMessage).toEqual(successMessage);
   }
 
   //get error message
-  public async getErrorMessage(errorMessage: string): Promise<void> {
-    errorMessage = await this.page.innerText("#contact_reply h1");
-    await expect(errorMessage).toEqual("Thank You for your Message!");
+  public async verifyErrorMessage(errorMessage: string): Promise<void> {
+    const actualErrorMessage = await this.page.innerText("#contact_reply h1");
+    await expect(actualErrorMessage).toMatch(errorMessage);
   }
 
   //get header text
