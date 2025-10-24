@@ -37,9 +37,14 @@ And('I click on the submit button', async function (this: CucumberWorld) {
     await this.contactUsPage.clickSubmitButton(); 
 });
 
-Then('I should be presented with a successful contact us submission message', async () => {
-    const successMessage = await pageFixture.page.innerText("#contact_reply h1");
-    expect(successMessage).toEqual("Thank You for your Message!");
+Then('I should be presented with a successful contact us submission message', async function(this: CucumberWorld) {
+    // const successMessage = await pageFixture.page.innerText("#contact_reply h1");
+    
+    
+    // const succesMessage = await this.contactUsPage.getSuccessfulMessage(); 
+    // await expect(successMessage).toEqual("Thank You for your Message!");
+
+    await this.contactUsPage.verifySuccessfulMessage('hank You for your Message!'); 
 });
 
 Then('I should be presented with a unsuccessful contact us submission message', async () => {

@@ -2,7 +2,7 @@ import { BasePage } from "./base/BasePage";
 import { expect } from "@playwright/test";
 
 export class ContactUsPage extends BasePage {
-  
+
   public async typeFirstName(firstName: string): Promise<void> {
     await this.page.locator("input[name='first_name']").fill(firstName);
   }
@@ -24,9 +24,9 @@ export class ContactUsPage extends BasePage {
   }
 
   //get success message
-  public async getSuccessfulMessage(successMessage: string): Promise<void> {
-    successMessage = await this.page.innerText("#contact_reply h1");
-    await expect(successMessage).toEqual("Thank You for your Message!");
+  public async verifySuccessfulMessage(successMessage: string): Promise<void> {
+    const acutalMessage = await this.page.innerText("#contact_reply h1");
+    await expect(acutalMessage).toEqual(successMessage);
   }
 
   //get error message
