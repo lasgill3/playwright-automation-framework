@@ -42,6 +42,11 @@ export class BasePage {
         await this.page.click(selector);
     }
 
+    public async fillByLocator(locator: string, text: string): Promise<void> {
+        const element = this.page.locator(locator);
+        await element.fill(text); 
+    }
+
     public async switchToNewTab(): Promise<void> {
         await this.page.context().waitForEvent('page'); //reinitialize page to the new tab
 
