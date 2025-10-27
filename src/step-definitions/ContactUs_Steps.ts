@@ -93,7 +93,6 @@ And('I type a random last name', async function (this: CucumberWorld) {
     const randomLastName = faker.person.lastName();
     this.setLastName(randomLastName);
     // await pageFixture.page.locator("input[name='last_name']").fill(randomLastName);
-
 });         
 
 And('I enter a random email address', async function (this: CucumberWorld) {
@@ -111,18 +110,26 @@ And('I type a random comment', async function (this: CucumberWorld) {
     await this.contactUsPage.typeRandomComment(randomComment); 
 });
 
-And('I type both first name {string} and a last name {string}', async (firstName: string, lastName: string) => {
-    await pageFixture.page.locator("input[name='first_name']").fill(firstName);
-    await pageFixture.page.locator("input[name='last_name']").fill(lastName);   
+
+//secnario outlines: )
+And('I type both first name {string} and a last name {string}', async function (this: CucumberWorld, firstName: string, lastName: string) {
+    // await pageFixture.page.locator("input[name='first_name']").fill(firstName);
+    // await pageFixture.page.locator("input[name='last_name']").fill(lastName);   
+
+    await this.contactUsPage.typeFirstName(firstName);
+    await this.contactUsPage.typeLastName(lastName);
 });
 
-And('I type an email {string} and a comment {string}', async (emailAdress: string, comment: string) => {   
-    await pageFixture.page.locator("input[name='email']").fill(emailAdress);  
-    await pageFixture.page.locator("textarea[name='message']").fill(comment);
+And('I type an email {string} and a comment {string}', async function (emailAdress: string, comment: string) {   
+    // await pageFixture.page.locator("input[name='email']").fill(emailAdress);  
+    // await pageFixture.page.locator("textarea[name='message']").fill(comment);
+
+    await this.contactUsPage.typeEmailAddress(emailAdress);
+    await this.contactUsPagae.typeComment(comment); 
 }); 
 
-And('I should be presented with header text {string}', async (successMessage: string) => {   
-    
+And('I should be presented with header text {string}', async function (successMessage: string) {   
+    const foundElementText: string = this.contactusPage(successMessage); 
     //perform an assertion
     expect(foundElementText).toContain(successMessage);
 }); 
