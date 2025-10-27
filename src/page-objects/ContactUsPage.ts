@@ -34,8 +34,9 @@ export class ContactUsPage extends BasePage {
     await this.fillByLocator("input[name='email']", randomEmailAddress);
   }
 
-  public async typeRandomComment(randomComment: string): Promise<void> {
-    await this.fillByLocator("input[name='message']", randomComment);
+  public async typeRandomComment(comment: string): Promise<void> {
+    // await this.fillByLocator("input[name='message']", randomComment);
+    await this.page.getByPlaceholder('Comments').fill(comment);
   }
 
   public async clickSubmitButton(): Promise<void> {
@@ -44,6 +45,7 @@ export class ContactUsPage extends BasePage {
 
   //get success message
   public async verifySuccessfulMessage(successMessage: string): Promise<void> {
+    await this.page.waitForSelector("#contact_reply h1", {state: 'visible', timeout: 30000 })
     const acutalSuccesssMessage = await this.page.innerText("#contact_reply h1");
     await expect(acutalSuccesssMessage).toEqual(successMessage);
   }

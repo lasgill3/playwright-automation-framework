@@ -93,12 +93,14 @@ And('I type a random last name', async function (this: CucumberWorld) {
     const randomLastName = faker.person.lastName();
     this.setLastName(randomLastName);
     // await pageFixture.page.locator("input[name='last_name']").fill(randomLastName);
+    await this.contactUsPage.typeRandomLastName(randomLastName); 
 });         
 
 And('I enter a random email address', async function (this: CucumberWorld) {
     const randomEmail = faker.internet.email();
     this.setEmailAddress(randomEmail);
-    await pageFixture.page.locator("input[name='email']").fill(randomEmail);  
+    // await pageFixture.page.locator("input[name='email']").fill(randomEmail);  
+    await this.contactUsPage.typeRandomEmailAddress(randomEmail); 
 });
 
 And('I type a random comment', async function (this: CucumberWorld) {
@@ -106,8 +108,9 @@ And('I type a random comment', async function (this: CucumberWorld) {
     //     ${this.getFirstName()} ${this.getLastName()} ${this.getEmailAddress()}`);  
         // await pageFixture.page.pause();
 
-    const randomComment = `Please could you contact me? \n Thanks ${this.getFirstName()} ${this.getLastName()} ${this.getEmailAddress()}`;
-    await this.contactUsPage.typeRandomComment(randomComment); 
+    // const randomComment = `Please could you contact me? \n Thanks ${this.getFirstName()} ${this.getLastName()} ${this.getEmailAddress()}`;
+    // await this.contactUsPage.typeRandomComment(randomComment); 
+    await this.contactUsPage.typeRandomComment(`Please could you contact me? \n Thanks ${this.getFirstName()} ${this.getLastName()} ${this.getEmailAddress()}`); 
 });
 
 
