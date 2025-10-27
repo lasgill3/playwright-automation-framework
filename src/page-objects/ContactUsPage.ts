@@ -80,5 +80,4 @@ export class ContactUsPage extends BasePage {
   }
 }
 
-const contactUsPage = new ContactUsPage(); 
-export default contactUsPage
+

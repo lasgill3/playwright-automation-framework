@@ -4,7 +4,6 @@ import { expect } from '@playwright/test';
 import { faker } from '@faker-js/faker';
 import { CucumberWorld } from './world/CucumberWorld';
 import logger from '../looger/logger';
-import contactUsPage from '../page-objects/ContactUsPage';
 
 
 And('I type a first name', async function (this: CucumberWorld) {
