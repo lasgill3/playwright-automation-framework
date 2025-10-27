@@ -12,8 +12,8 @@ Given('I navigate to the webdriveruniversity login page', async function (this: 
    try {
     // await pageFixture.page.goto(url);
 
-    await this.basePage.navigateToURL(url);
-    // await this.loginPage.navigateToLoginPage(); 
+    // await this.basePage.navigateToURL(url);
+    await this.loginPage.navigateToLoginPage(); 
     logger.info(`Accessing URL: ${url}`);
     this.setURL(url);
     // throw new Error("Test error logging"); // Test error logging    
@@ -29,13 +29,19 @@ And('I type an username {string} and password {string}', async function (this: C
 }); 
 
 And('I click on the login button', async function (this: CucumberWorld) {
-    await  pageFixture.page.on('dialog', async (alert) => {
+    // await  pageFixture.page.on('dialog', async (alert) => {
+    //     alertText = alert.message();
+    //     // console.log(`Alert message: ${alertText}`);
+    //     await alert.accept();
+    //     // await alert.dismiss();
+    // });
+    // await pageFixture.page.click('#login-button', {force: true });
+
+    this.loginPage.page.on('dialog', async (alert) => {
         alertText = alert.message();
         // console.log(`Alert message: ${alertText}`);
         await alert.accept();
-        // await alert.dismiss();
     });
-    // await pageFixture.page.click('#login-button', {force: true });
     await this.loginPage.clickLoginButton(); 
 });
 
@@ -46,7 +52,3 @@ Then('I should be presented with an alert box which contains text {string}', asy
     // });
     expect(alertText).toEqual(expectedAlertMessage);
 }); 
-
-When('I click on the alert ok button', async () => {
-    // The alert is handled in the previous step
-});

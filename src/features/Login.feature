@@ -12,7 +12,6 @@ Feature: webdriveruniversity - Login Page validation
         And I type an username '<username>' and password '<password>'
         And I click on the login button
         Then I should be presented with an alert box which contains text '<expectedAlertMessage>'
-        When I click on the alert ok button
 
         Examples:
             | username  | password     | expectedAlertMessage |
