@@ -13,6 +13,7 @@ Given('I navigate to the webdriveruniversity login page', async function (this: 
     // await pageFixture.page.goto(url);
 
     await this.basePage.navigateToURL(url);
+    // await this.loginPage.navigateToLoginPage(); 
     logger.info(`Accessing URL: ${url}`);
     this.setURL(url);
     // throw new Error("Test error logging"); // Test error logging    

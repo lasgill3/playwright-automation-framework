@@ -1,7 +1,14 @@
 import { BasePage } from "./base/BasePage";  
-import { expect } from "@playwright/test";
+
+const url = 'https://www.webdriveruniversity.com/Login-Portal/index.html';
+
 
 export class LoginPage extends BasePage {
+
+    public async navigateToLoginPage(): Promise<void> {
+        // await this.basePage.navigateToURL(url)
+        await this.page.goto(url); 
+    }
 
     public async typeUserNameAndPassword(username: string, password: string): Promise<void> {
         await this.page.fill('#text', username);
