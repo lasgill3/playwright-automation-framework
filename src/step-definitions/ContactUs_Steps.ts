@@ -123,16 +123,19 @@ And('I type both first name {string} and a last name {string}', async function (
     await this.contactUsPage.typeLastName(lastName);
 });
 
-And('I type an email {string} and a comment {string}', async function (emailAdress: string, comment: string) {   
+And('I type an email {string} and a comment {string}', async function (emailAddress: string, comment: string) {   
     // await pageFixture.page.locator("input[name='email']").fill(emailAdress);  
     // await pageFixture.page.locator("textarea[name='message']").fill(comment);
 
-    await this.contactUsPage.typeEmailAddress(emailAdress);
-    await this.contactUsPagae.typeComment(comment); 
+    await this.contactUsPage.typeEmailAddress(emailAddress);
+    await this.contactUsPage.typeComment(comment);
 }); 
 
 And('I should be presented with header text {string}', async function (successMessage: string) {   
-    const foundElementText: string = this.contactusPage(successMessage); 
-    //perform an assertion
+    const foundElementText = await this.contactUsPage.getHeaderText(successMessage); 
+    // //perform an assertion
     expect(foundElementText).toContain(successMessage);
+    // const headerText = await this.contactUsPage.getHeaderText(successMessage);
+    //perform an assertion
+    // expect(headerText).toContain(successMessage);
 }); 
