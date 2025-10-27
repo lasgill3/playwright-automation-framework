@@ -18,7 +18,7 @@ export class ContactUsPage extends BasePage {
   }
 
   public async typeComment(commentMessage: string): Promise<void> {
-    await this.page.locator("textarea[name='message'").fill(commentMessage);
+    await this.page.locator("textarea[name='message']").fill(commentMessage);
   }
   
   //Random Data Faker Examples 
@@ -49,8 +49,8 @@ export class ContactUsPage extends BasePage {
   }
 
   //get error message
-  public async verifyErrorMessage(errorMessage: string): Promise<void> {
-    const actualErrorMessage = await this.page.innerText("#contact_reply h1");
+  public async verifyErrorMessage(errorMessage: any): Promise<void> {
+    const actualErrorMessage = await this.page.innerText("body");
     await expect(actualErrorMessage).toMatch(errorMessage);
   }
 

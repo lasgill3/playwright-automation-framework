@@ -44,7 +44,7 @@ Then('I should be presented with a successful contact us submission message', as
     // const succesMessage = await this.contactUsPage.getSuccessfulMessage(); 
     // await expect(successMessage).toEqual("Thank You for your Message!");
 
-    await this.contactUsPage.verifySuccessfulMessage('hank You for your Message!'); 
+    await this.contactUsPage.verifySuccessfulMessage('Thank You for your Message!'); 
 });
 
 Then('I should be presented with a unsuccessful contact us submission message', async function (this: CucumberWorld) {
@@ -54,7 +54,7 @@ Then('I should be presented with a unsuccessful contact us submission message', 
     // const bodyText = await bodyElement.textContent();
     // await expect(bodyText).toMatch(/Error: (all fields are required|Invalid email address)/);   
 
-    await this.contactUsPage.verifyErrorMessage('/Error: (all fields are required|Invalid email address)/');
+    await this.contactUsPage.verifyErrorMessage(/Error: (all fields are required|Invalid email address)/);
 });
 
 
